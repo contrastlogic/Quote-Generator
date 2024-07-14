@@ -39,7 +39,7 @@ function showStep(stepNumber) {
     // Update progress bar
     const progress = document.getElementById('progress');
     if (progress) {
-        progress.style.width = `${(stepNumber - 1) * 25}%`;
+        progress.style.width = `${(stepNumber - 1) * 20}%`; // Adjusted for 5 steps
     }
 }
 
@@ -99,8 +99,9 @@ function updateQuote() {
 function validateStep1() {
     const numRooms = document.getElementById('num-rooms').value;
     const sqFt = document.getElementById('sq-ft').value;
+    const zipCode = document.getElementById('zip-code').value;
 
-    if (!numRooms || !sqFt) {
+    if (!numRooms || !sqFt || !zipCode) {
         document.getElementById('step1-error').textContent = 'Please fill in all required fields.';
     } else {
         document.getElementById('step1-error').textContent = '';
@@ -109,18 +110,23 @@ function validateStep1() {
 }
 
 function validateStep2() {
+    // Add any validation needed for step 2
+    showStep(3);
+}
+
+function validateStep3() {
     const date = document.getElementById('cleaning-date').value;
     const time = document.getElementById('cleaning-time').value;
 
     if (!date || !time) {
-        document.getElementById('step2-error').textContent = 'Please select a date and time.';
+        document.getElementById('step3-error').textContent = 'Please select a date and time.';
     } else {
-        document.getElementById('step2-error').textContent = '';
-        showStep(3);
+        document.getElementById('step3-error').textContent = '';
+        showStep(4);
     }
 }
 
-function validateStep3() {
+function validateStep4() {
     const name = document.getElementById('name').value;
     const address = document.getElementById('address').value;
     const phone = document.getElementById('phone').value;
@@ -134,6 +140,7 @@ function validateStep3() {
     }
 }
 
+// Update order summary in the submitOrder function
 function submitOrder() {
     // Collect data from the form
     const name = document.getElementById('name').value;
@@ -152,18 +159,61 @@ function submitOrder() {
         <p><strong>Email:</strong> ${email}</p>
         <p><strong>Date:</strong> ${date}</p>
         <p><strong>Time:</strong> ${time}</p>
+        <p id="applied-coupon"></p>
     `;
     document.querySelector('.order-summary').innerHTML = orderSummary;
 
     // Show the review step
-    showStep(4);
+    showStep(5);
 }
+
+let appliedCoupon = null;
+
+const coupons = {
+    "SAVE25": 25,
+    "2ROOMS147": 147,
+    "4ROOMS263": 263
+};
+
+function applyCoupon(code) {
+    const couponCode = code.toUpperCase();
+    if (coupons[couponCode] && !appliedCoupon) {
+        appliedCoupon = couponCode;
+        const discount = coupons[couponCode];
+        const totalElement = document.getElementById('total');
+        const currentTotal = parseFloat(totalElement.textContent);
+        const newTotal = currentTotal - discount;
+        totalElement.textContent = newTotal.toFixed(2);
+        document.getElementById('applied-coupon').textContent = `Applied Coupon: ${couponCode}`;
+    } else if (appliedCoupon) {
+        alert('A coupon has already been applied.');
+    } else {
+        alert('Invalid coupon code');
+    }
+}
+
+
+
 
 // Initial setup
 document.addEventListener('DOMContentLoaded', function () {
+
+    document.getElementById('apply-save25').addEventListener('click', function () {
+        applyCoupon('SAVE25');
+    });
+    document.getElementById('apply-2rooms147').addEventListener('click', function () {
+        applyCoupon('2ROOMS147');
+    });
+    document.getElementById('apply-4rooms263').addEventListener('click', function () {
+        applyCoupon('4ROOMS263');
+    });
+
+    // Initialize the first step
     showStep(1);
     document.querySelectorAll('input, .quantity button').forEach(item => {
         item.addEventListener('change', updateQuote);
         item.addEventListener('click', updateQuote);
     });
+
+
 });
