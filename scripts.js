@@ -167,4 +167,3 @@ document.addEventListener('DOMContentLoaded', function () {
         item.addEventListener('click', updateQuote);
     });
 });
-
