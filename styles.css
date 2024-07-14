@@ -1,0 +1,450 @@
+/* Container for the entire page */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    background-color: #FFFFFF;
+    /* White */
+    padding: 20px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    margin: 0 auto;
+    /* Center the container */
+}
+
+/* Header styling */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #EEE9E5;
+    /* Grey */
+}
+
+/* Logo styling */
+.logo {
+    max-height: 50px;
+}
+
+/* Contact information styling */
+.contact-info p {
+    font-size: 18px;
+    font-weight: bold;
+    color: #262626;
+    /* Charcoal */
+}
+
+/* Step navigation bar */
+.steps {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+}
+
+/* Individual step styling */
+.step {
+    flex: 1;
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #EEE9E5;
+    /* Grey */
+    border-radius: 5px;
+    background-color: #F9F4F0;
+    /* Butter Beige */
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+/* Active step styling */
+.step.active {
+    background-color: #FFFD74;
+    /* Chirps Yellow */
+}
+
+/* Step margin */
+.step:not(:last-child) {
+    margin-right: 10px;
+}
+
+/* General styles for responsiveness */
+@media (max-width: 768px) {
+    .main-content {
+        flex-direction: column;
+    }
+
+    .sidebar,
+    .service-selection,
+    .scheduling,
+    .user-information,
+    .review-order,
+    .confirmation {
+        width: 100%;
+    }
+}
+
+/* Padding adjustments for better spacing */
+.main-content {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    /* Added padding */
+}
+
+/* Sidebar styling */
+.sidebar {
+    width: 20%;
+    padding: 20px;
+    background-color: #F8F9FA;
+    border: 1px solid #DEE2E6;
+    border-radius: 5px;
+    position: sticky;
+    top: 20px;
+}
+
+/* Online specials section */
+.online-specials h3 {
+    margin-bottom: 10px;
+}
+
+/* Special offer styling */
+.special {
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #FFF3CD;
+    border: 1px solid #FFEEBA;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.special p {
+    margin: 0 0 10px;
+    font-size: 14px;
+}
+
+/* Special offer button styling */
+.special button {
+    background-color: #FFFD74;
+    /* Chirps Yellow */
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.special button:hover {
+    background-color: #FBF84F;
+    /* Chirps Yellow darker shade */
+}
+
+/* Step content sections */
+.service-selection,
+.scheduling,
+.user-information,
+.review-order,
+.confirmation {
+    width: 55%;
+    padding: 20px;
+    /* Added padding */
+    background-color: #FFFFFF;
+    /* White */
+    border: 1px solid #EEE9E5;
+    /* Grey */
+    border-radius: 5px;
+    margin-bottom: 20px;
+    /* Added margin */
+}
+
+/* Hide all step content by default */
+.step-content {
+    display: none;
+}
+
+/* Show active step content */
+.step-content.active {
+    display: block;
+}
+
+/* Step titles */
+.service-selection h1,
+.scheduling h1,
+.user-information h1,
+.review-order h1,
+.confirmation h1 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #262626;
+    /* Charcoal */
+}
+
+/* Service category styling */
+.service-category {
+    margin-bottom: 20px;
+}
+
+/* Service category button styling */
+.service-category button {
+    display: block;
+    width: 100%;
+    background-color: #FFFD74;
+    /* Chirps Yellow */
+    border: none;
+    padding: 15px;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    margin-bottom: 10px;
+    /* Added margin */
+}
+
+.service-category button:hover {
+    background-color: #FBF84F;
+    /* Chirps Yellow darker shade */
+}
+
+/* Details section for each service */
+.details {
+    display: none;
+    padding: 20px;
+    background-color: #FFF3CD;
+    border: 1px solid #FFEEBA;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+/* Service option styling */
+.service-option {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.service-option label {
+    flex: 1;
+    margin-right: 10px;
+    font-size: 16px;
+}
+
+.service-option input[type="number"],
+.service-option input[type="date"],
+.service-option input[type="time"],
+.service-option input[type="text"],
+.service-option input[type="tel"],
+.service-option input[type="email"] {
+    width: calc(100% - 20px);
+    padding: 10px;
+    border: 1px solid #CCC;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Quantity control styling */
+.quantity {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.quantity button {
+    background-color: #54C0DE;
+    /* Robin's Egg Blue */
+    border: none;
+    color: white;
+    padding: 5px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    flex: 1;
+}
+
+.quantity button:hover {
+    background-color: #6BD3EC;
+    /* Lighter Robin's Egg Blue */
+}
+
+.quantity span {
+    margin: 0 10px;
+    font-size: 18px;
+    text-align: center;
+    flex: 1;
+}
+
+/* Quote summary styling */
+.quote-summary {
+    width: 20%;
+    padding: 20px;
+    background-color: #F8F9FA;
+    border: 1px solid #DEE2E6;
+    border-radius: 5px;
+    position: sticky;
+    top: 20px;
+}
+
+.quote-summary h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #262626;
+    /* Charcoal */
+}
+
+.quote-details p {
+    margin: 10px 0;
+    font-size: 18px;
+}
+
+/* Promo code section styling */
+.promo-code {
+    margin-top: 20px;
+}
+
+.promo-code p {
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.promo-code input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #CCC;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.promo-code button {
+    width: 100%;
+    background-color: #FFFD74;
+    /* Chirps Yellow */
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.promo-code button:hover {
+    background-color: #FBF84F;
+    /* Chirps Yellow darker shade */
+}
+
+/* Additional options section styling */
+.additional-options {
+    margin-top: 20px;
+}
+
+.additional-options p {
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.additional-options label {
+    font-size: 14px;
+}
+
+.additional-options input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+/* Button styling */
+.next-step,
+.prev-step,
+.submit-order {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #54C0DE;
+    /* Robin's Egg Blue */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.next-step:hover,
+.prev-step:hover,
+.submit-order:hover {
+    background-color: #6BD3EC;
+    /* Lighter Robin's Egg Blue */
+}
+
+.prev-step {
+    background-color: #6C757D;
+    /* Grey */
+}
+
+.prev-step:hover {
+    background-color: #5A6268;
+    /* Darker Grey */
+}
+
+/* Error message styling */
+.error-message {
+    color: red;
+    margin-top: 10px;
+}
+
+/* Highlight error fields */
+.highlight-error {
+    border: 2px solid red;
+}
+
+/* Progress bar styling */
+.progress-bar {
+    width: 100%;
+    background-color: #F3F3F3;
+    border-radius: 5px;
+    overflow: hidden;
+    margin: 20px 0;
+}
+
+.progress {
+    height: 10px;
+    background-color: #FFFD74;
+    /* Chirps Yellow */
+    width: 0;
+    transition: width 0.3s;
+}
+
+/* Adjustments for better spacing and layout */
+.service-option input[type="number"] {
+    flex: 1;
+    margin-left: 10px;
+}
+
+.service-option input[type="date"],
+.service-option input[type="time"],
+.service-option input[type="text"],
+.service-option input[type="tel"],
+.service-option input[type="email"] {
+    flex: 2;
+    margin-left: 10px;
+}
+
+.quantity {
+    justify-content: space-between;
+    width: 100%;
+}
+
+.quantity button {
+    flex: 1;
+}
+
+.quantity span {
+    flex: 1;
+    text-align: center;
+}
+
+.service-category button {
+    margin-top: 10px;
+}
+
+/* Overall container adjustments */
+.container {
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
